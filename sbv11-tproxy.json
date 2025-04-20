@@ -33,7 +33,7 @@
             },
             {
                 "tag": "dns_proxy",
-                "address": "tls://8.8.8.8",
+                "address": "https://8.8.8.8/dns-query",
                 "address_strategy": "ipv4_only",
                 "strategy": "ipv4_only",
                 "client_subnet": "1.0.1.0",
