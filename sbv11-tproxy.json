@@ -178,7 +178,6 @@
     ],
       "final": "🐟 Final",
       "auto_detect_interface": true,
-      "default_mark": 666,
-      "concurrent_dial": true
+      "default_mark": 666
     }
 }
