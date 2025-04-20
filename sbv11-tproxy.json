@@ -27,8 +27,8 @@
             {
                 "tag": "dns_direct",
                 "address": "223.5.5.5",
-                "address_strategy": "ipv4_only",
-                "strategy": "ipv4_only",
+                "address_strategy": "prefer_ipv4",
+                "strategy": "prefer_ipv4",
                 "detour": "🎯 DIRECT"
             },
             {
@@ -36,6 +36,7 @@
                 "address": "tls://8.8.8.8",
                 "address_strategy": "ipv4_only",
                 "strategy": "ipv4_only",
+                "client_subnet": "1.0.1.0",
                 "detour": "🚀 PROXY"
             }
         ],
@@ -53,13 +54,25 @@
                 "clash_mode": "Global",
                 "server": "dns_proxy"
             },
+            { "rule_set": ["cn", "private", "microsoft-cn", "apple-cn", "google-cn", "fakeip-filter"], "server": "dns_direct" },
             {
-                "rule_set": "cn",
-                "server": "dns_direct"
-            },
-            {
-                "rule_set": "proxy",
-                "server": "dns_proxy"
+              "domain_suffix": [
+                ".lan",
+                ".local",
+                ".classchen.fun",
+                ".gying.si",
+                ".yunpan1.cc",
+                ".class",
+                ".cl",
+                ".subhd.tv",
+                "*.localdomain",
+                ".shazam.com",
+                ".level2.governmenttips.com",
+                ".rss-node.com",
+                ".hassbian.com",
+                ".bbs.hassbian.com"
+              ],
+              "server": "dns_direct"
             }
         ],
         "final": "dns_proxy",
@@ -147,34 +160,34 @@
         {"rule_set":["proxy"],"action":"route","outbound":"🚀 PROXY"}
       ],
     "rule_set": [
-        {"tag":"fakeip-filter","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/fakeip-filter.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"private","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/private.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"trackerslist","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/trackerslist.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"applications","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/applications.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"microsoft-cn","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/microsoft-cn.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"apple-cn","type":"remote","format":"binary","url":"https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"google-cn","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/google-cn.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"games-cn","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/games-cn.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"netflix","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/netflix.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"disney","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/disney.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"max","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/max.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"primevideo","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/primevideo.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"appletv","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/appletv.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"youtube","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/youtube.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"tiktok","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/tiktok.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"bilibili","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/bilibili.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"spotify","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/spotify.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"ai","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/ai.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"networktest","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/networktest.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"tld-proxy","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/tld-proxy.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"proxy","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/proxy.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"tld-cn","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/tld-cn.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"cn","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/cn.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"privateip","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/privateip.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"cnip","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/cnip.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"netflixip","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/netflixip.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"telegramip","type":"remote","format":"binary","url":"https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/telegramip.srs","download_detour":"🎯 DIRECT"},
-        {"tag":"adobe","type":"remote","format":"binary","url":"https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/adobe.srs","download_detour":"🎯 DIRECT"}
+        {"tag":"fakeip-filter","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/fakeip-filter.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"private","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/private.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"trackerslist","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/trackerslist.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"applications","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/applications.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"microsoft-cn","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/microsoft-cn.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"apple-cn","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"google-cn","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/google-cn.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"games-cn","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/games-cn.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"netflix","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/netflix.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"disney","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/disney.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"max","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/max.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"primevideo","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/primevideo.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"appletv","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/appletv.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"youtube","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/youtube.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"tiktok","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/tiktok.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"bilibili","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/bilibili.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"spotify","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/spotify.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"ai","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/ai.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"networktest","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/networktest.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"tld-proxy","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/tld-proxy.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"proxy","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/proxy.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"tld-cn","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/tld-cn.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"cn","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/cn.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"privateip","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/privateip.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"cnip","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/cnip.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"netflixip","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/netflixip.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"telegramip","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/telegramip.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"adobe","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/adobe.srs","download_detour":"🎯 DIRECT"}
     ],
       "final": "🐟 Final",
       "auto_detect_interface": true,
