@@ -140,10 +140,10 @@
         { "rule_set": [ "adobe" ], "outbound": "📷 Adobe" },
         { "rule_set": [ "tld-cn" ], "outbound": "🎯 DIRECT" },
         { "rule_set": [ "cn" ], "outbound": "🎯 DIRECT" },
-        { "rule_set": [ "privateip" ], "outbound": "🎯 DIRECT", "skip_resolve": true },
+        { "rule_set": ["privateip"],"action":"route","outbound":"🎯 DIRECT"},
         { "rule_set": [ "cnip" ], "outbound": "🎯 DIRECT" },
-        { "rule_set": [ "netflixip" ], "outbound": "🎥 Netflix", "skip_resolve": true },
-        { "rule_set": [ "telegramip" ], "outbound": "📲 Telegram", "skip_resolve": true },
+        { "rule_set": ["netflixip"], "action":"route","outbound":"🎥 Netflix"},
+        { "rule_set": ["telegramip"],"action":"route","outbound":"📲 Telegram"},
         { "rule_set": [ "proxy" ], "outbound": "🚀 PROXY" }
       ],
     "rule_set": [
