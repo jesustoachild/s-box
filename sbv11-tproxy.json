@@ -54,7 +54,7 @@
                 "server": "dns_proxy"
             },
             {
-                "rule_set": "geosite-cn",
+                "rule_set": "cn",
                 "server": "dns_direct"
             },
             {
