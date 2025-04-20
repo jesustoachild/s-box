@@ -1,0 +1,184 @@
+{
+
+    "log": {
+        "disabled": false,
+        "level": "info",
+        "timestamp": true
+    },
+    
+    "experimental": {
+        "clash_api": {
+            "external_controller": "0.0.0.0:9095",
+            "external_ui": "/etc/sing-box/ui",
+            "secret": "",
+            "external_ui_download_url": "https://gh-proxy.com/https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip",
+            "external_ui_download_detour": "🎯 DIRECT",
+            "default_mode": "rule"
+        },
+        "cache_file": {
+            "enabled": true,
+            "path": "/etc/sing-box/cache.db",
+            "store_fakeip": false
+        }
+    },
+    
+    "dns": {
+        "servers": [
+            {
+                "tag": "dns_direct",
+                "address": "223.5.5.5",
+                "address_strategy": "ipv4_only",
+                "strategy": "ipv4_only",
+                "detour": "🎯 DIRECT"
+            },
+            {
+                "tag": "dns_proxy",
+                "address": "tls://8.8.8.8",
+                "address_strategy": "ipv4_only",
+                "strategy": "ipv4_only",
+                "detour": "🚀 PROXY"
+            }
+        ],
+        "rules": [
+            {
+                "outbound": "any",
+                "server": "dns_direct",
+                "disable_cache": true
+            },
+            {
+                "clash_mode": "Direct",
+                "server": "dns_direct"
+            },
+            {
+                "clash_mode": "Global",
+                "server": "dns_proxy"
+            },
+            {
+                "rule_set": "geosite-cn",
+                "server": "dns_direct"
+            },
+            {
+                "rule_set": "geosite-geolocation-!cn",
+                "server": "dns_proxy"
+            }
+        ],
+        "final": "dns_proxy",
+        "strategy": "ipv4_only"
+    },
+    
+    "inbounds": [
+        {
+            "type": "tproxy",
+            "tag": "tproxy-in",
+            "listen": "0.0.0.0",
+            "listen_port": 7895
+        }
+    ],    
+
+    "outbounds": [
+      { "tag": "🚀 PROXY", "type": "selector", "outbounds": [ "🇭🇰 Hong Kong", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇸🇬 Singapore", "🇺🇸 US", "🛫 Airports", "🏡 CF-Nodes" ] },
+      { "tag": "🐟 Final", "type": "selector", "outbounds": [ "🚀 PROXY", "🎯 DIRECT" ] },
+      { "tag": "🤖 AI", "type": "selector", "outbounds": [ "🇸🇬 Singapore", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇺🇸 US", "🛫 Airports", "🏡 CF-Nodes" ] },
+      { "tag": "📷 Adobe", "type": "selector", "outbounds": [ "🇭🇰 Hong Kong", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇸🇬 Singapore", "🇺🇸 US", "🛫 Airports", "🎯 DIRECT" ] },
+      { "tag": "🎮 Gaming", "type": "selector", "outbounds": [ "🎯 DIRECT", "🚀 PROXY" ] },
+      { "tag": "🪟 Microsoft-CN", "type": "selector", "outbounds": [ "🎯 DIRECT", "🚀 PROXY" ] },
+      { "tag": "🇬 Google-CN", "type": "selector", "outbounds": [ "🎯 DIRECT", "🚀 PROXY" ] },
+      { "tag": "🍎 Apple-CN", "type": "selector", "outbounds": [ "🎯 DIRECT", "🚀 PROXY" ] },
+      { "tag": "🎥 Netflix", "type": "selector", "outbounds": [ "🚀 PROXY", "🇭🇰 Hong Kong", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇸🇬 Singapore", "🇺🇸 US" ] },
+      { "tag": "📽️ Disney+", "type": "selector", "outbounds": [ "🚀 PROXY", "🇭🇰 Hong Kong", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇸🇬 Singapore", "🇺🇸 US" ] },
+      { "tag": "🎞️ Max", "type": "selector", "outbounds": [ "🚀 PROXY", "🇭🇰 Hong Kong", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇸🇬 Singapore", "🇺🇸 US" ] },
+      { "tag": "🎬 Prime", "type": "selector", "outbounds": [ "🚀 PROXY", "🇭🇰 Hong Kong", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇸🇬 Singapore", "🇺🇸 US" ] },
+      { "tag": "🍎 Apple TV+", "type": "selector", "outbounds": [ "🚀 PROXY", "🇭🇰 Hong Kong", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇸🇬 Singapore", "🇺🇸 US" ] },
+      { "tag": "📹 YouTube", "type": "selector", "outbounds": [ "🚀 PROXY", "🇭🇰 Hong Kong", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇸🇬 Singapore", "🇺🇸 US" ] },
+      { "tag": "🎵 TikTok", "type": "selector", "outbounds": [ "🇸🇬 Singapore", "🇭🇰 Hong Kong", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇺🇸 US" ] },
+      { "tag": "📺 Bilibili", "type": "selector", "outbounds": [ "🎯 DIRECT", "🚀 PROXY", "🇭🇰 Hong Kong", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇸🇬 Singapore", "🇺🇸 US" ] },
+      { "tag": "🎶 Spotify", "type": "selector", "outbounds": [ "🚀 PROXY", "🇭🇰 Hong Kong", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇸🇬 Singapore", "🇺🇸 US" ] },
+      { "tag": "📈 Network Test", "type": "selector", "outbounds": [ "🎯 DIRECT", "🇭🇰 Hong Kong", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇸🇬 Singapore", "🇺🇸 US", "🛫 Airports", "🏡 CF-Nodes" ] },
+      { "tag": "📋 Trackerslist", "type": "selector", "outbounds": [ "🎯 DIRECT", "🚀 PROXY" ] },
+      { "tag": "📲 Telegram", "type": "selector", "outbounds": ["🚀 PROXY"] },
+      { "tag": "🎯 DIRECT", "type": "selector", "outbounds": [ "DIRECT" ] },
+      { "tag": "REJECT", "type": "block" },
+      { "tag": "DIRECT", "type": "direct" },
+      { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "REJECT", "🇭🇰 Hong Kong", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇸🇬 Singapore", "🇺🇸 US", "🛫 Airports", "🏡 CF-Nodes" ] },
+      { "tag":"🇭🇰 Hong Kong","type":"urltest","outbounds":["{all}"],"filter":[{"action":"include","keywords":["🇹🇼","港","hk","hongkong","hong kong"]}],"url":"http://www.gstatic.com/generate_204","interval":"10m","tolerance":50},
+      { "tag":"🇨🇳 Taiwan","type":"urltest","outbounds":["{all}"],"filter":[{"action":"include","keywords":["🇨🇳","台","tw","taiwan","tai wan"]}],"url":"http://www.gstatic.com/generate_204","interval":"10m","tolerance":50},
+      { "tag":"🇯🇵 Japan","type":"urltest","outbounds":["{all}"],"filter":[{"action":"include","keywords":["🇯🇵","日本","jp","japan"]}],"url":"http://www.gstatic.com/generate_204","interval":"10m","tolerance":50},
+      { "tag":"🇸🇬 Singapore","type":"urltest","outbounds":["{all}"],"filter":[{"action":"include","keywords":["🇸🇬","新","sg","singapore"]}],"url":"http://www.gstatic.com/generate_204","interval":"10m","tolerance":50},
+      { "tag":"🇺🇸 US","type":"urltest","outbounds":["{all}"],"filter":[{"action":"include","keywords":["🇺🇸","美","us","unitedstates","united states"]}],"url":"http://www.gstatic.com/generate_204","interval":"10m","tolerance":50},
+      { "tag":"🛫 Airports","type":"selector","outbounds":["{all}"],"filter":[{"action":"include","keywords":["🇹🇼","港","hk","hongkong","hong kong","🇨🇳","台","tw","taiwan","tai wan","🇯🇵","日本","jp","japan","🇸🇬","新","sg","singapore","🇺🇸","美","us","unitedstates","united states"]},{"action":"exclude","keywords":["自建","cf-nodes"]}]},
+      { "tag":"🏡 CF-Nodes","type":"selector","outbounds":["{all}"],"filter":[{"action":"include","keywords":["自建","cf-nodes"]}]}
+    ],
+
+    "route": {
+      "rules": [
+        { "action": "sniff"},
+        { "protocol": "dns", "action": "hijack-dns"},
+        { "clash_mode": "direct", "outbound": "🎯 DIRECT"},
+        { "clash_mode": "global", "outbound": "GLOBAL"},
+        { "domain": ["jesusya.dpdns.org", "yacd.haishan.me", "metacubex.one", "clash.razord.top", "yacd.metacubex.one"], "outbound": "🎯 DIRECT"},
+        { "domain_suffix": ["classchen.dpdns.org", "zimuku.org", "hassbian.com", "yunpan1.cc", "gying.si", "mi.com", "subhd.tv", "api.io.mi.com", "koolcenter.com", "onkyo.com", "poco.cn", "home-assistant.io", "alipan.com", "lanzouc.com", "123pan.com", "smartmidea.net", "appsmb.com", "cconfig.cc", "detail.tmall.com", "classchen.fun", "jesusya.us.kg", "shazam.com", "ditu.baidu.com", "rss-node.com", "hassbian.com"], "outbound": "🎯 DIRECT" },
+        { "domain_suffix": ["keeflys.com", "hitun.io", "one.one.one.one", "snowfl.com", "qichiyu.com"], "outbound": "🚀 PROXY" },
+        { "rule_set": [ "private" ], "outbound": "🎯 DIRECT" },
+        { "rule_set": [ "trackerslist" ], "outbound": "📋 Trackerslist" },
+        { "rule_set": [ "applications" ], "outbound": "🎯 DIRECT" },
+        { "rule_set": [ "microsoft-cn" ], "outbound": "🪟 Microsoft-CN" },
+        { "rule_set": [ "apple-cn" ], "outbound": "🍎 Apple-CN" },
+        { "rule_set": [ "google-cn" ], "outbound": "🇬 Google-CN" },
+        { "rule_set": [ "games-cn" ], "outbound": "🎮 Gaming" },
+        { "rule_set": [ "netflix" ], "outbound": "🎥 Netflix" },
+        { "rule_set": [ "disney" ], "outbound": "📽️ Disney+" },
+        { "rule_set": [ "max" ], "outbound": "🎞️ Max" },
+        { "rule_set": [ "primevideo" ], "outbound": "🎬 Prime" },
+        { "rule_set": [ "appletv" ], "outbound": "🍎 Apple TV+" },
+        { "rule_set": [ "youtube" ], "outbound": "📹 YouTube" },
+        { "rule_set": [ "tiktok" ], "outbound": "🎵 TikTok" },
+        { "rule_set": [ "bilibili" ], "outbound": "📺 Bilibili" },
+        { "rule_set": [ "spotify" ], "outbound": "🎶 Spotify" },
+        { "rule_set": [ "ai" ], "outbound": "🤖 AI" },
+        { "rule_set": [ "networktest" ], "outbound": "📈 Network Test" },
+        { "rule_set": [ "tld-proxy" ], "outbound": "🚀 PROXY" },
+        { "rule_set": [ "adobe" ], "outbound": "📷 Adobe" },
+        { "rule_set": [ "tld-cn" ], "outbound": "🎯 DIRECT" },
+        { "rule_set": [ "cn" ], "outbound": "🎯 DIRECT" },
+        { "rule_set": [ "privateip" ], "outbound": "🎯 DIRECT", "skip_resolve": true },
+        { "rule_set": [ "cnip" ], "outbound": "🎯 DIRECT" },
+        { "rule_set": [ "netflixip" ], "outbound": "🎥 Netflix", "skip_resolve": true },
+        { "rule_set": [ "telegramip" ], "outbound": "📲 Telegram", "skip_resolve": true },
+        { "rule_set": [ "proxy" ], "outbound": "🚀 PROXY" }
+      ],
+    "rule_set": [
+        {"tag":"fakeip-filter","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/fakeip-filter.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"private","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/private.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"trackerslist","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/trackerslist.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"applications","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/applications.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"microsoft-cn","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/microsoft-cn.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"apple-cn","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"google-cn","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/google-cn.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"games-cn","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/games-cn.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"netflix","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/netflix.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"disney","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/disney.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"max","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/max.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"primevideo","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/primevideo.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"appletv","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/appletv.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"youtube","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/youtube.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"tiktok","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/tiktok.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"bilibili","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/bilibili.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"spotify","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/spotify.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"ai","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/ai.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"networktest","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/networktest.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"tld-proxy","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/tld-proxy.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"proxy","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/proxy.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"tld-cn","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/tld-cn.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"cn","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/cn.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"privateip","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/privateip.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"cnip","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/cnip.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"netflixip","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/netflixip.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"telegramip","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/telegramip.srs","download_detour":"🎯 DIRECT"},
+        {"tag":"adobe","type":"remote","format":"binary","url":"http://gh.classchen.fun/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/adobe.srs","download_detour":"🎯 DIRECT"}
+    ],
+      "final": "🐟 Final",
+      "auto_detect_interface": true,
+      "default_mark": 666,
+      "concurrent_dial": true
+    }
+}
