@@ -148,7 +148,6 @@
         {"rule_set":["spotify"],"action":"route","outbound":"🎶 Spotify"},
         {"rule_set":["ai"],"action":"route","outbound":"🤖 AI"},
         {"rule_set":["networktest"],"action":"route","outbound":"📈 Network Test"},
-        {"rule_set":["tld-proxy"],"action":"route","outbound":"🚀 PROXY"},
         {"rule_set":["adobe"],"action":"route","outbound":"📷 Adobe"},
         {"rule_set":["tld-cn"],"action":"route","outbound":"🎯 DIRECT"},
         {"rule_set":["cn"],"action":"route","outbound":"🎯 DIRECT"},
@@ -156,6 +155,7 @@
         {"rule_set":["cnip"],"action":"route","outbound":"🎯 DIRECT"},
         {"rule_set":["netflixip"],"action":"route","outbound":"🎥 Netflix"},
         {"rule_set":["telegramip"],"action":"route","outbound":"📲 Telegram"},
+        {"rule_set":["tld-proxy"],"action":"route","outbound":"🚀 PROXY"},
         {"rule_set":["proxy"],"action":"route","outbound":"🚀 PROXY"}
       ],
     "rule_set": [
