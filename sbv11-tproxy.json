@@ -111,7 +111,7 @@
       { "tag": "📲 Telegram", "type": "selector", "outbounds": ["🚀 PROXY"] },
       { "tag": "🎯 DIRECT", "type": "selector", "outbounds": [ "DIRECT" ] },
       { "tag": "DIRECT", "type": "direct" },
-      { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "REJECT", "🇭🇰 Hong Kong", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇸🇬 Singapore", "🇺🇸 US", "🛫 Airports", "🏡 CF-Nodes" ] },
+      { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "🇭🇰 Hong Kong", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇸🇬 Singapore", "🇺🇸 US", "🛫 Airports", "🏡 CF-Nodes" ] },
       { "tag":"🇭🇰 Hong Kong","type":"urltest","outbounds":["{all}"],"filter":[{"action":"include","keywords":["🇹🇼","港","hk","hongkong","hong kong"]}],"url":"http://www.gstatic.com/generate_204","interval":"10m","tolerance":50},
       { "tag":"🇨🇳 Taiwan","type":"urltest","outbounds":["{all}"],"filter":[{"action":"include","keywords":["🇨🇳","台","tw","taiwan","tai wan"]}],"url":"http://www.gstatic.com/generate_204","interval":"10m","tolerance":50},
       { "tag":"🇯🇵 Japan","type":"urltest","outbounds":["{all}"],"filter":[{"action":"include","keywords":["🇯🇵","日本","jp","japan"]}],"url":"http://www.gstatic.com/generate_204","interval":"10m","tolerance":50},
