@@ -27,6 +27,7 @@
       { "tag": "🐟 Final", "type": "selector", "outbounds": [ "🚀 PROXY", "🎯 DIRECT" ] },
       { "tag": "🤖 AI", "type": "selector", "outbounds": [ "🇸🇬 Singapore", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇺🇸 US", "🛫 Airports", "🏡 CF-Nodes" ] },
       { "tag": "📷 Adobe", "type": "selector", "outbounds": [ "🇭🇰 Hong Kong", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇸🇬 Singapore", "🇺🇸 US", "🛫 Airports", "🎯 DIRECT" ] },
+      { "tag": "👥 Zoom", "type": "selector", "outbounds": [ "🎯 DIRECT", "🚀 PROXY" ] },
       { "tag": "🎮 Gaming", "type": "selector", "outbounds": [ "🎯 DIRECT", "🚀 PROXY" ] },
       { "tag": "🪟 Microsoft-CN", "type": "selector", "outbounds": [ "🎯 DIRECT", "🚀 PROXY" ] },
       { "tag": "🇬 Google-CN", "type": "selector", "outbounds": [ "🎯 DIRECT", "🚀 PROXY" ] },
@@ -82,6 +83,7 @@
         { "rule_set": [ "ai" ], "outbound": "🤖 AI" },
         { "rule_set": [ "networktest" ], "outbound": "📈 Network Test" },
         { "rule_set": [ "adobe" ], "outbound": "📷 Adobe" },
+        {"rule_set":["zoom"],"action":"route","outbound":"👥 Zoom"},
         { "rule_set": [ "privateip" ], "outbound": "🎯 DIRECT", "skip_resolve": true },
         { "rule_set": [ "cnip" ], "outbound": "🎯 DIRECT" },
         { "rule_set": [ "netflixip" ], "outbound": "🎥 Netflix", "skip_resolve": true },
@@ -117,7 +119,8 @@
         {"tag": "cnip", "type": "remote", "format": "binary", "path": "./ruleset/cnip.srs", "url": "http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/cnip.srs"},
         {"tag": "netflixip", "type": "remote", "format": "binary", "path": "./ruleset/netflixip.srs", "url": "http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/netflixip.srs"},
         {"tag": "telegramip", "type": "remote", "format": "binary", "path": "./ruleset/teltengramip.srs", "url": "http://gh.classchen.fun/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/telegramip.srs"},
-        {"tag": "adobe", "type": "remote", "format": "binary", "path": "./ruleset/adobe.srs", "url": "http://gh.classchen.fun/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/adobe.srs"}
+        {"tag": "adobe", "type": "remote", "format": "binary", "path": "./ruleset/adobe.srs", "url": "http://gh.classchen.fun/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/adobe.srs"},
+        {"tag":"zoom","type":"remote","format":"binary","url":"https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/zoom.srs","download_detour":"🎯 DIRECT"}
     ],
       "final": "🐟 Final",
       "auto_detect_interface": true,
