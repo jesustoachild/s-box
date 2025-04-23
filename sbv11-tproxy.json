@@ -91,7 +91,7 @@
     "outbounds": [
       { "tag": "🚀 PROXY", "type": "selector", "outbounds": [ "🇭🇰 Hong Kong", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇸🇬 Singapore", "🇺🇸 US", "🛫 Airports", "🏡 CF-Nodes" ] },
       { "tag": "🐟 Final", "type": "selector", "outbounds": [ "🚀 PROXY", "🎯 DIRECT" ] },
-      { "tag": "🤖 AI", "type": "selector", "outbounds": [ "🇸🇬 Singapore", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇺🇸 US", "🇭🇰 Hong Kong", "🛫 Airports", "🏡 CF-Nodes" ] },
+      { "tag": "🤖 AI", "type": "selector", "outbounds": [ "🇸🇬 Singapore", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇺🇸 US", "🛫 Airports", "🏡 CF-Nodes" ] },
       { "tag": "📷 Adobe", "type": "selector", "outbounds": [ "🇭🇰 Hong Kong", "🇨🇳 Taiwan", "🇯🇵 Japan", "🇸🇬 Singapore", "🇺🇸 US", "🛫 Airports", "🎯 DIRECT" ] },
       { "tag": "👥 Zoom", "type": "selector", "outbounds": [ "🎯 DIRECT", "🚀 PROXY" ] },
       { "tag": "🎮 Gaming", "type": "selector", "outbounds": [ "🎯 DIRECT", "🚀 PROXY" ] },
