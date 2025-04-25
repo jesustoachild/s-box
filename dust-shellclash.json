@@ -14,7 +14,7 @@
         {
           "tag": "🏡 CF-Nodes",
           "type": "remote",
-          "download_url": "http://nas.classchen.fun:3001/jesusya/download/SelfBuild?target=ClashMeta",
+          "download_url": "http://nas.classchen.fun:3001/jesusya/download/collection/SelfBuild?target=ClashMeta",
           "path": "./providers/free.json",
           "download_interval": "24h",
           "download_ua": "sing-box",
