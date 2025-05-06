@@ -120,7 +120,7 @@
         {"tag": "netflixip", "type": "remote", "format": "binary", "path": "./ruleset/netflixip.srs", "url": "https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/netflixip.srs"},
         {"tag": "telegramip", "type": "remote", "format": "binary", "path": "./ruleset/teltengramip.srs", "url": "https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/telegramip.srs"},
         {"tag": "adobe", "type": "remote", "format": "binary", "path": "./ruleset/adobe.srs", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/adobe.srs"},
-        {"tag":"zoom","type":"remote","format":"binary",  "./ruleset/zoom.srs", "url":"https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/zoom.srs"}
+        {"tag": "zoom", "type": "remote", "format": "binary", "path": "./ruleset/zoom.srs", "url":"https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/zoom.srs"}
     ],
       "final": "Final",
       "auto_detect_interface": true,
