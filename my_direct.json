@@ -2,6 +2,12 @@
   "version": 1,
   "rules": [
     {
+      "domain": [
+        "clash.razord.top",
+        "yacd.metacubex.one",
+        "yacd.haishan.me",
+        "metacubex.one"
+      ],
       "domain_suffix": [
         "yunpan1.cc",
         "gying.si",
@@ -16,7 +22,14 @@
         "shazam.com",
         "rss-node.com",
         "subhd.tv",
-        "gh-proxy.com"
+        "gh-proxy.com",
+        "lan",
+        "local",
+        "class",
+        "cl",
+        "localdomain",
+        "level2.governmenttips.com",
+        "hassbian.com"
       ]
     }
   ]
