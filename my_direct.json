@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "domain_suffix": [
+        "yunpan1.cc",
+        "gying.si",
+        "api.io.mi.com",
+        "onkyo.com",
+        "poco.cn",
+        "home-assistant.io",
+        "appsmb.com",
+        "cconfig.cc",
+        "classchen.fun",
+        "jesusya.us.kg",
+        "shazam.com",
+        "rss-node.com",
+        "subhd.tv",
+        "gh-proxy.com"
+      ]
+    }
+  ]
+}
