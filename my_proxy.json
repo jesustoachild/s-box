@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "domain_suffix": [
+        "snowfl.com",
+        "qichiyu.com",
+        "one.one.one.one",
+        "hitun.io"
+      ]
+    }
+  ]
+}
