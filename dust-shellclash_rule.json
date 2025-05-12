@@ -122,7 +122,7 @@
         {"tag": "telegramip", "type": "remote", "format": "binary", "path": "./ruleset/teltengramip.srs", "url": "https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/telegramip.srs"},
         {"tag": "adobe", "type": "remote", "format": "binary", "path": "./ruleset/adobe.srs", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/adobe.srs"},
         {"tag": "zoom", "type": "remote", "format": "binary", "path": "./ruleset/zoom.srs", "url":"https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/zoom.srs"},
-        {"tag": "my_direct", "type": "remote", "format": "taxt", "path": "./ruleset/my_direct.json", "url":"https://gh-proxy.com/https://raw.githubusercontent.com/jesustoachild/s-box/refs/heads/main/my_direct.json"}
+        {"tag": "my_direct", "type": "remote", "format": "text", "path": "./ruleset/my_direct.json", "url":"https://gh-proxy.com/https://raw.githubusercontent.com/jesustoachild/s-box/refs/heads/main/my_direct.json"}
     ],
       "final": "Final",
       "auto_detect_interface": true,
