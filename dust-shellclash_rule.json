@@ -62,9 +62,8 @@
     ],
     "route": {
       "rules": [
-        { "domain": ["gh-proxy.com", "jesusya.dpdns.org", "yacd.haishan.me", "metacubex.one", "clash.razord.top", "yacd.metacubex.one"], "outbound": "DIRECT"},
-        { "domain_suffix": ["classchen.dpdns.org", "zimuku.org", "hassbian.com", "yunpan1.cc", "gying.si", "mi.com", "subhd.tv", "api.io.mi.com", "koolcenter.com", "onkyo.com", "poco.cn", "home-assistant.io", "alipan.com", "lanzouc.com", "123pan.com", "smartmidea.net", "appsmb.com", "cconfig.cc", "detail.tmall.com", "classchen.fun", "jesusya.us.kg", "shazam.com", "ditu.baidu.com", "rss-node.com", "hassbian.com"], "outbound": "DIRECT" },
         { "domain_suffix": ["keeflys.com", "hitun.io", "one.one.one.one", "snowfl.com", "qichiyu.com"], "outbound": "PROXY" },
+        { "rule_set": [ "my_direct" ], "outbound": "DIRECT" }, 
         { "rule_set": [ "trackerslist" ], "outbound": "Trackerslist" },
         { "rule_set": [ "applications" ], "outbound": "DIRECT" },
         { "rule_set": [ "microsoft-cn" ], "outbound": "Microsoft-CN" },
