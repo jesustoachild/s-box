@@ -127,7 +127,7 @@
         {"tag": "ehentai", "type": "remote", "format": "binary", "path": "./ruleset/adobe.srs", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/ehentai.srs"},
         {"tag": "zoom", "type": "remote", "format": "binary", "path": "./ruleset/zoom.srs", "url":"https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/zoom.srs"},
         {"tag": "my_direct", "type": "remote", "format": "source", "path": "./ruleset/my_direct.json", "url":"https://gh-proxy.com/https://raw.githubusercontent.com/jesustoachild/s-box/refs/heads/main/my_direct.json"},
-        {"tag": "my_proxy", "type": "remote", "format": "source", "path": "./ruleset/my_direct.json", "url":"https://gh-proxy.com/https://raw.githubusercontent.com/jesustoachild/s-box/refs/heads/main/my_proxy.json"}
+        {"tag": "my_proxy", "type": "remote", "format": "source", "path": "./ruleset/my_proxy.json", "url":"https://gh-proxy.com/https://raw.githubusercontent.com/jesustoachild/s-box/refs/heads/main/my_proxy.json"}
     ],
       "final": "Final",
       "auto_detect_interface": true,
