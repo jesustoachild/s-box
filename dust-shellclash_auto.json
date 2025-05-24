@@ -57,7 +57,8 @@
       { "tag": "JP Select", "type": "selector", "providers": [ "Airport Subscription" ], "includes": [ "(?i)(🇯🇵|日本|jp|japan)" ] },
       { "tag": "US Select", "type": "selector", "providers": [ "Airport Subscription" ], "includes": [ "(?i)(🇺🇸|美|us|unitedstates|united states)" ] },
       { "tag": "Airports", "type": "selector", "providers": "Airport Subscription" },
-      { "tag": "CF-Nodes", "type": "selector", "providers": [ "CF-Nodes" ] }
+      { "tag": "CF-Select", "type": "selector", "providers": [ "CF-Nodes" ] },
+      { "tag": "CF-Nodes", "type": "urltest", "providers": [ "CF-Nodes" ], "tolerance": 50 }
     ],
     "route": {
       "rules": [
